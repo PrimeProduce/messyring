@@ -24,7 +24,7 @@ messyring.checkForRing = function (onring)  {
       }
     });
   };
-  setInterval(check, 3 * 1000);
+  setInterval(check, 5 * 1000);
   check();
 }
 
