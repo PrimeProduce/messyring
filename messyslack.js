@@ -14,7 +14,8 @@ messyslack.sendNote = function(channel, text) {
   messyslack.instance.webhook({
       channel: channel,
       username: "Doorbell-bot",
-      text: text
+      text: text,
+      icon_emoji: ":robot_face:"
   }, function(err, response) {
       console.log(response);
   });
