@@ -1,0 +1,17 @@
+{
+  "name": "messyring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "doorbot": "^1.0.0",
+    "moment": "^2.18.1",
+    "slack-node": "^0.1.8",
+    "tracery-grammar": "^2.7.3"
+  }
+}
