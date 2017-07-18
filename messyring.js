@@ -4,7 +4,7 @@ const Ring = require('doorbot');
 const Secrets = require('./Secrets');
 
 messyring.init = function(callback) {
-  Ring.authenticate(Secrets.messyring.email, Secrets.messyring.password, (e, token) => {
+  Ring.authenticate(Secrets.ring.email, Secrets.ring.password, (e, token) => {
     console.log(e, token);
     messyring.token = token;
     callback();
@@ -17,10 +17,12 @@ messyring.checkForRing = function (onring)  {
     Ring.dings(messyring.token, (e, json) => {
       console.log(e, json);
       try {
+        console.log(json);
         if(json[0]['state'] === 'ringing') {
           onring(json);
         }
       } catch (e) {
+        console.log(e);
       }
     });
   };
@@ -29,11 +31,13 @@ messyring.checkForRing = function (onring)  {
 }
 
 messyring.getHistory = () => {
-  Ring.history(messyring.token, (error, array) => {
-    console.log(error);
-    console.log(array[0].id);
-    messyring.getRecording(array[0].id);
-    
+  return new Promise((resolve, reject) => {
+    Ring.history(messyring.token, (error, array) => {
+
+      if(error) { return reject(error); }
+      return resolve(array);
+    });
+      
   });
 }
 

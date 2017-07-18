@@ -6,7 +6,7 @@ var Secrets = require('./Secrets');
 
 messyslack.init = function(callback) {
   messyslack.instance = new Slack();
-  messyslack.instance.setWebhook(Secrets.messyslack.webhookUri);
+  messyslack.instance.setWebhook(Secrets.slack.webhookUri);
   callback();
 }
 
